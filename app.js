@@ -1,15 +1,22 @@
-const liveDot = document.querySelector(".live-dot");
-const updated = document.querySelector(".updated");
+const previewCard = document.querySelector("solar-dashboard-card");
 
-setInterval(() => {
-  const now = new Date();
-  const time = now.toLocaleTimeString("pt-PT", { hour: "2-digit", minute: "2-digit", second: "2-digit" });
-  if (updated) updated.innerHTML = `Atualizado às ${time} <i></i>`;
-}, 30000);
+// This is the smallest useful Home Assistant mock: the card is exercised through
+// the same config and hass properties that Lovelace uses in production.
+previewCard?.setConfig({
+  type: "custom:solar-dashboard-card",
+  solar_power: "sensor.solar_power",
+  home_power: "sensor.home_power",
+  battery_level: "sensor.battery_level",
+  grid_power: "sensor.grid_power",
+});
 
-if (liveDot) {
-  liveDot.addEventListener("click", () => {
-    liveDot.classList.toggle("paused");
-    liveDot.innerHTML = liveDot.classList.contains("paused") ? "◌ Pausado" : "<i></i> Ao vivo";
-  });
+if (previewCard) {
+  previewCard.hass = {
+    states: {
+      "sensor.solar_power": { state: "573", attributes: { unit_of_measurement: "W" } },
+      "sensor.home_power": { state: "1.4", attributes: { unit_of_measurement: "kW" } },
+      "sensor.battery_level": { state: "54", attributes: { unit_of_measurement: "%" } },
+      "sensor.grid_power": { state: "0", attributes: { unit_of_measurement: "W" } },
+    },
+  };
 }

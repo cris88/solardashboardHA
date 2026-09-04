@@ -21,6 +21,9 @@ grid_power: sensor.grid_power
 
 Substitua os `entity_id` pelos sensores existentes na sua instalação. As entidades são opcionais; sem configuração, o cartão apresenta valores de demonstração.
 
-## Pré-visualização
+## Pré-visualização estática
 
-Abra `index.html` para ver a composição visual completa usada como referência do cartão.
+Abra `index.html` num navegador (ou sirva a pasta com um servidor HTTP). A página
+instancia o próprio `solar-dashboard-card` e fornece um objeto `hass` de demonstração,
+por isso testa o mesmo código que será executado no Home Assistant. Altere os valores
+mock em `app.js` para testar estados e unidades diferentes antes da instalação.
