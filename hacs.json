@@ -1,0 +1,6 @@
+{
+  "name": "Solar Dashboard HA",
+  "filename": "solar-dashboard.js",
+  "content_in_root": true,
+  "render_readme": true
+}

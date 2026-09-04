@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="pt-PT">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solar Home · Home Assistant</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="dashboard">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">HOME ASSISTANT · ENERGIA</p>
+          <h1>Solar home</h1>
+        </div>
+        <div class="top-actions">
+          <span class="live-dot"><i></i> Ao vivo</span>
+          <button class="icon-button" aria-label="Definições">⚙</button>
+          <div class="avatar">CR</div>
+        </div>
+      </header>
+
+      <section class="summary-grid" aria-label="Resumo energético">
+        <article class="metric-card sun-card">
+          <div class="card-heading"><span class="sun-symbol">☀</span><span>Produção solar</span><b>Hoje</b></div>
+          <strong>11,89 <small>kWh</small></strong>
+          <div class="progress"><span style="width: 73%"></span></div>
+          <p><em>+13,8 kWh</em> previsão diária</p>
+        </article>
+        <article class="metric-card blue-card">
+          <div class="card-heading"><span class="bolt-symbol">↯</span><span>Consumo da casa</span><b>Hoje</b></div>
+          <strong>9,42 <small>kWh</small></strong>
+          <div class="progress"><span style="width: 55%"></span></div>
+          <p><em>1,4 kW</em> neste momento</p>
+        </article>
+        <article class="metric-card battery-card">
+          <div class="card-heading"><span class="battery-symbol">▣</span><span>Bateria</span><b>54%</b></div>
+          <strong>5,2 <small>kWh</small></strong>
+          <div class="progress"><span style="width: 54%"></span></div>
+          <p><em>855 W</em> a descarregar</p>
+        </article>
+        <article class="metric-card grid-card">
+          <div class="card-heading"><span class="grid-symbol">⌁</span><span>Rede elétrica</span><b>Hoje</b></div>
+          <strong>0,10 <small>kWh</small></strong>
+          <div class="progress"><span style="width: 8%"></span></div>
+          <p><em>0 W</em> importados agora</p>
+        </article>
+      </section>
+
+      <section class="content-grid">
+        <article class="flow-card panel">
+          <div class="panel-header">
+            <div><p class="eyebrow">FLUXO DE ENERGIA</p><h2>Agora</h2></div>
+            <span class="updated">Atualizado há 3 s <i></i></span>
+          </div>
+          <div class="flow-canvas">
+            <svg class="connections" viewBox="0 0 760 460" preserveAspectRatio="none" aria-hidden="true">
+              <path class="flow-line orange" d="M147 117 C232 132 247 168 315 190" />
+              <path class="flow-line aqua" d="M348 198 C405 205 430 211 477 230" />
+              <path class="flow-line aqua" d="M348 210 C365 280 378 325 410 356" />
+              <path class="flow-line pale" d="M530 243 C591 231 640 161 675 112" />
+              <path class="flow-line pale" d="M530 256 C591 295 635 344 673 370" />
+              <circle class="flow-pulse" cx="261" cy="165" r="5"/><circle class="flow-pulse" cx="427" cy="214" r="5"/>
+              <circle class="flow-pulse" cx="383" cy="305" r="5"/><circle class="flow-pulse pale-pulse" cx="618" cy="172" r="4"/>
+            </svg>
+
+            <div class="node solar-node">
+              <div class="solar-art"><span></span><span></span><span></span><span></span></div>
+              <p>Solar</p><strong>573 <small>W</small></strong>
+              <small class="sub">11,89 kWh hoje</small>
+            </div>
+            <div class="node inverter-node">
+              <div class="inverter-art">DC <b>AC</b></div>
+              <p>Inversor</p><strong>58°</strong><small class="sub">Sistema pronto</small>
+            </div>
+            <div class="node home-node">
+              <div class="house-art"><span class="roof"></span><span class="house-body"><i></i><i></i><b>⚡</b></span></div>
+              <p>Casa</p><strong>1,4 <small>kW</small></strong><small class="sub">11,9 kWh hoje</small>
+            </div>
+            <div class="node battery-node">
+              <div class="battery-art"><span>54%</span></div>
+              <p>Bateria</p><strong>855 <small>W</small></strong><small class="sub">A descarregar</small>
+            </div>
+            <div class="node grid-node">
+              <div class="grid-art">⌁</div><p>Rede</p><strong>0 <small>W</small></strong><small class="sub">0,10 kWh hoje</small>
+            </div>
+
+            <div class="loads">
+              <div class="load"><span>▱</span><div><b>AC Quartos</b><small>550 W</small></div></div>
+              <div class="load"><span>▱</span><div><b>AC R/C</b><small>292 W</small></div></div>
+              <div class="load"><span>ϟ</span><div><b>Escritório</b><small>63 W</small></div></div>
+            </div>
+          </div>
+        </article>
+
+        <aside class="side-column">
+          <article class="panel weather-card">
+            <div class="panel-header"><div><p class="eyebrow">PREVISÃO</p><h2>Hoje, 4 de setembro</h2></div><span class="weather-icon">☀</span></div>
+            <div class="weather-main"><strong>24°</strong><span>Ensolarado<br><small>Lisboa, PT</small></span></div>
+            <div class="weather-hours"><span>08h<br><b>18°</b></span><span>12h<br><b>23°</b></span><span>16h<br><b>24°</b></span><span>20h<br><b>20°</b></span></div>
+          </article>
+          <article class="panel devices-card">
+            <div class="panel-header"><div><p class="eyebrow">DISPOSITIVOS</p><h2>Consumo por área</h2></div><button class="more">•••</button></div>
+            <div class="device-row"><span class="device-icon cyan">⌂</span><div><b>Sala de estar</b><small>AC R/C</small></div><strong>292 W</strong></div>
+            <div class="device-row"><span class="device-icon purple">⌁</span><div><b>Quartos</b><small>AC Quartos</small></div><strong>550 W</strong></div>
+            <div class="device-row"><span class="device-icon yellow">ϟ</span><div><b>Escritório</b><small>Computador</small></div><strong>63 W</strong></div>
+            <div class="device-row"><span class="device-icon green">◌</span><div><b>Outros</b><small>Standby</small></div><strong>495 W</strong></div>
+          </article>
+        </aside>
+      </section>
+
+      <footer><span>☀  Nascer do sol <b>07:09</b></span><span>Próxima atualização automática em 30 s</span><span>Por do sol <b>20:01</b>  ◒</span></footer>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
